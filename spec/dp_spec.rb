@@ -33,4 +33,36 @@ describe 'Dynamic Programming' do
       expect(obj.climb_stairs(n)).to eq(expected)
     end
   end
+
+  context CoinPatterns do
+    let(:obj) { CoinPatterns.new }
+
+    it 'returns 1 for amount=0, coins=[]' do
+      amount = 0
+      coins = []
+      expected = 1
+      expect(obj.change(amount, coins)).to eq(expected)
+    end
+
+    it 'returns 4 for amount=5, coins=[1, 2, 5]' do
+      amount = 5
+      coins = [1, 2, 5]
+      expected = 4
+      expect(obj.change(amount, coins)).to eq(expected)
+    end
+
+    it 'returns 0 for amount=3, coins=[2]' do
+      amount = 3
+      coins = [2]
+      expected = 0
+      expect(obj.change(amount, coins)).to eq(expected)
+    end
+
+    it 'returns 1 for amount=10, coins=[10]' do
+      amount = 10
+      coins = [10]
+      expected = 1
+      expect(obj.change(amount, coins)).to eq(expected)
+    end
+  end
 end
