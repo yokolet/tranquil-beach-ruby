@@ -90,4 +90,14 @@ describe 'Dynamic Programming' do
       expect(obj.coin_change(coins, amount)).to eq(expected)
     end
   end
+
+  context LIS do
+    let(:obj) { LIS.new }
+
+    it 'returns 4 for nums=[10,9,2,5,3,7,101,18]' do
+      nums = [10,9,2,5,3,7,101,18]
+      expected = 4
+      expect(obj.length_of_lis(nums)).to eq(expected)
+    end
+  end
 end
