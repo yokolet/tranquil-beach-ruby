@@ -116,4 +116,20 @@ describe 'Dynamic Programming' do
       expect(obj.longest_palindrome(s)).to eq(expected)
     end
   end
+
+  context LongestPalindromicSubsequence do
+    let(:obj) { LongestPalindromicSubsequence.new }
+
+    it 'returns 4 for bbbab' do
+      s = "bbbab"
+      expected = 4
+      expect(obj.longest_palindrome_subseq(s)).to eq(expected)
+    end
+
+    it 'returns 2 for cbbd' do
+      s = "cbbd"
+      expected = 2
+      expect(obj.longest_palindrome_subseq(s)).to eq(expected)
+    end
+  end
 end
