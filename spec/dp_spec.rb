@@ -100,4 +100,20 @@ describe 'Dynamic Programming' do
       expect(obj.length_of_lis(nums)).to eq(expected)
     end
   end
+
+  context LongestPalindromicSubstring do
+    let(:obj) { LongestPalindromicSubstring.new }
+
+    it 'returns bab or aba for babad' do
+      s = "babad"
+      expected = ["bab", "aba"]
+      expect(obj.longest_palindrome(s)).to satisfy { |v| expected.include?(v) }
+    end
+
+    it 'returns bb for sbbd' do
+      s = "cbbd"
+      expected = "bb"
+      expect(obj.longest_palindrome(s)).to eq(expected)
+    end
+  end
 end
