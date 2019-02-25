@@ -17,4 +17,20 @@ describe 'Other' do
       expect(obj.arrange_coins(n)).to eq(expected)
     end
   end
+
+  context PalindromePairs do
+    let(:obj) { PalindromePairs.new }
+
+    it 'returns 4 pairs for ["abcd","dcba","lls","s","sssll"]' do
+      words = ["abcd","dcba","lls","s","sssll"]
+      expected = [[0,1],[1,0],[3,2],[2,4]]
+      expect(obj.palindrome_pairs(words)).to eq(expected)
+    end
+
+    it 'returns 2 pairs for ["bat","tab","cat"]' do
+      words = ["bat","tab","cat"]
+      expected = [[0,1],[1,0]]
+      expect(obj.palindrome_pairs(words)).to eq(expected)
+    end
+  end
 end
