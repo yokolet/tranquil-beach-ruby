@@ -28,4 +28,17 @@ describe 'Arrays and Strings' do
     end
   end
 
+  context PalindromeByDeletion do
+    let(:obj) { PalindromeByDeletion.new }
+
+    it 'should return true for "aba"' do
+      s = "aba"
+      expect(obj.valid_palindrome(s)).to be_truthy
+    end
+
+    it 'should return true for "abca"' do
+      s = "abca"
+      expect(obj.valid_palindrome(s)).to be_truthy
+    end
+  end
 end
