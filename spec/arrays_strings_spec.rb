@@ -51,4 +51,22 @@ describe 'Arrays and Strings' do
       expect(nums).to eq([1, 3, 12, 0, 0])
     end
   end
+
+  context AddBinary do
+    let(:obj) { AddBinary.new }
+
+    it 'should add 11 and 1 and returns 100' do
+      a = "11"
+      b = "1"
+      expected = "100"
+      expect(obj.add_binary(a, b)).to eq(expected)
+    end
+
+    it 'should add 1010 and 1011 and returns 10101' do
+      a = "1010"
+      b = "1011"
+      expected = "10101"
+      expect(obj.add_binary(a, b)).to eq(expected)
+    end
+  end
 end
