@@ -14,4 +14,18 @@ describe 'Arrays and Strings' do
     end
   end
 
+  context ValidPalindrome do
+    let(:obj) { ValidPalindrome.new }
+
+    it 'should be true for "A man, a plan, a canal: Panama"' do
+      s = "A man, a plan, a canal: Panama"
+      expect(obj.is_palindrome(s)).to be_truthy
+    end
+
+    it 'should be false for "race a car"' do
+      s = "race a car"
+      expect(obj.is_palindrome(s)).to be_falsey
+    end
+  end
+
 end
