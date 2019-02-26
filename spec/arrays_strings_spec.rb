@@ -69,4 +69,22 @@ describe 'Arrays and Strings' do
       expect(obj.add_binary(a, b)).to eq(expected)
     end
   end
+
+  context MaxSubarraySumK do
+    let(:obj) { MaxSubarraySumK.new }
+
+    it 'returns 4 for [1, -1, 5, -2, 3] to sum 3' do
+      nums = [1, -1, 5, -2, 3]
+      k = 3
+      expected = 4
+      expect(obj.max_sub_array_len(nums, k)).to eq(expected)
+    end
+
+    it 'returns 2 for [-2, -1, 2, 1] to sum 1' do
+      nums = [-2, -1, 2, 1]
+      k = 1
+      expected = 2
+      expect(obj.max_sub_array_len(nums, k)).to eq(expected)
+    end
+  end
 end
