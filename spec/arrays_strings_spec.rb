@@ -41,4 +41,14 @@ describe 'Arrays and Strings' do
       expect(obj.valid_palindrome(s)).to be_truthy
     end
   end
+
+  context MoveZeros do
+    let(:obj) { MoveZeros.new }
+
+    it 'should move zeros of [0,1,0,3,12]' do
+      nums = [0,1,0,3,12]
+      obj.move_zeroes(nums)
+      expect(nums).to eq([1, 3, 12, 0, 0])
+    end
+  end
 end
