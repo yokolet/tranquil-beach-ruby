@@ -55,12 +55,24 @@ describe 'Binary Tree' do
 
   context BinaryTreeToList do
     let(:obj) { BinaryTreeToList.new }
+
     it 'flattens a binary list' do
       s = "1(2(3)(4))(5()(6))"
       expected = "1()(2()(3()(4()(5()(6)))))"
       root = TreeNode.str2tree(s)
       obj.flatten(root)
       expect(TreeNode.tree2str(root)).to eq(expected)
+    end
+  end
+
+  context BinaryTreeDiameter do
+    let(:obj) { BinaryTreeDiameter.new }
+
+    it 'finds a diameter' do
+      s = "1(2(4)(5))(3)"
+      expected = 3
+      root = TreeNode.str2tree(s)
+      expect(obj.diameter_of_binary_tree(root)).to eq(expected)
     end
   end
 end
