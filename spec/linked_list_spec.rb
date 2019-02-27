@@ -29,4 +29,15 @@ describe 'Linked List' do
     end
   end
 
+  context ReverseLinkedList do
+    let(:obj) { ReverseLinkedList.new }
+
+    it 'should reverse linked list' do
+      head = ListNode.build([1, 2, 3, 4, 5])
+      expected = "5 -> 4 -> 3 -> 2 -> 1"
+      result = obj.reverse_list(head)
+      expect(ListNode.stringify(result)).to eq(expected)
+    end
+  end
+
 end

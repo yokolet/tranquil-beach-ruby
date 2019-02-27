@@ -105,4 +105,15 @@ describe 'Arrays and Strings' do
       expect(obj.subarray_sum(nums, k)).to eq(expected)
     end
   end
+
+  context MinSubarraySum do
+    let(:obj) { MinSubarraySum.new }
+
+    it 'return 2 for [2,3,1,2,4,3] to sum 7' do
+      s = 7
+      nums = [2,3,1,2,4,3]
+      expected = 2
+      expect(obj.min_sub_array_len(s, nums)).to eq(expected)
+    end
+  end
 end
