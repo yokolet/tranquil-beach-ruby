@@ -40,4 +40,15 @@ describe 'Linked List' do
     end
   end
 
+  context NthNodeFromEnd do
+    let(:obj) { NthNodeFromEnd.new }
+
+    it 'should remove node 4' do
+      head = ListNode.build([1, 2, 3, 4, 5])
+      n = 2
+      expected = "1 -> 2 -> 3 -> 5"
+      result = obj.remove_nth_from_end(head, n)
+      expect(ListNode.stringify(result)).to eq(expected)
+    end
+  end
 end
