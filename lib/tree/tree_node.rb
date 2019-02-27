@@ -40,4 +40,26 @@ class TreeNode
     end
     return root, index
   end
+
+  # @param {TreeNode} root
+  # @return {String}
+  def self.tree2str(root)
+    return traverse(root, '')
+  end
+
+  def self.traverse(root, result)
+    return result if root.nil?
+    result += root.val.to_s
+    if root.left or root.right
+      result += '('
+      result = traverse(root.left, result)
+      result += ')'
+      if root.right
+        result += '('
+        result = traverse(root.right, result)
+        result += ')'
+      end
+    end
+    result
+  end
 end

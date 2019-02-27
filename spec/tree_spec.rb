@@ -29,6 +29,18 @@ describe 'Binary Tree' do
       expect(result.right.left).to be_nil
       expect(result.right.right).to be_nil
     end
+
+    it 'serialize binary tree to string' do
+      s = "4(2(3)(1))(6(5))"
+      result = TreeNode.str2tree(s)
+      expect(TreeNode.tree2str(result)).to eq(s)
+    end
+
+    it 'serialize binary tree without left child to string' do
+      s = "1(2()(5))(3)"
+      result = TreeNode.str2tree(s)
+      expect(TreeNode.tree2str(result)).to eq(s)
+    end
   end
 
   context TreePath do
