@@ -30,13 +30,13 @@ describe 'Binary Tree' do
       expect(result.right.right).to be_nil
     end
 
-    it 'serialize binary tree to string' do
+    it 'serializes binary tree to string' do
       s = "4(2(3)(1))(6(5))"
       result = TreeNode.str2tree(s)
       expect(TreeNode.tree2str(result)).to eq(s)
     end
 
-    it 'serialize binary tree without left child to string' do
+    it 'serializes binary tree without left child to string' do
       s = "1(2()(5))(3)"
       result = TreeNode.str2tree(s)
       expect(TreeNode.tree2str(result)).to eq(s)
@@ -50,6 +50,17 @@ describe 'Binary Tree' do
       result = TreePath.new.binary_tree_paths(root)
       expected = ["1->2->5", "1->3"]
       expect(result).to eq(expected)
+    end
+  end
+
+  context BinaryTreeToList do
+    let(:obj) { BinaryTreeToList.new }
+    it 'flattens a binary list' do
+      s = "1(2(3)(4))(5()(6))"
+      expected = "1()(2()(3()(4()(5()(6)))))"
+      root = TreeNode.str2tree(s)
+      obj.flatten(root)
+      expect(TreeNode.tree2str(root)).to eq(expected)
     end
   end
 end
