@@ -87,4 +87,22 @@ describe 'Arrays and Strings' do
       expect(obj.max_sub_array_len(nums, k)).to eq(expected)
     end
   end
+
+  context SubarraySumK do
+    let(:obj) { SubarraySumK.new }
+
+    it 'returns 2 for [1, 1, 1] to sum 2' do
+      nums = [1, 1, 1]
+      k = 2
+      expected = 2
+      expect(obj.subarray_sum(nums, k)).to eq(expected)
+    end
+
+    it 'return 4 for [1,2,1,2,1] to sum 3' do
+      nums = [1,2,1,2,1]
+      k = 3
+      expected = 4
+      expect(obj.subarray_sum(nums, k)).to eq(expected)
+    end
+  end
 end
