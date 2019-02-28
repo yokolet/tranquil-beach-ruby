@@ -75,4 +75,22 @@ describe 'Binary Tree' do
       expect(obj.diameter_of_binary_tree(root)).to eq(expected)
     end
   end
+
+  context ValidBST do
+    let(:obj) { ValidBST.new }
+
+    it 'return true for valid BST' do
+      s = "2(1)(3)"
+      expected = true
+      root = TreeNode.str2tree(s)
+      expect(obj.is_valid_bst(root)).to be_truthy
+    end
+
+    it 'returns false for invalid BST' do
+      s = "5(1)(4(3)(6))"
+      expected = false
+      root = TreeNode.str2tree(s)
+      expect(obj.is_valid_bst(root)).to be_falsey
+    end
+  end
 end
