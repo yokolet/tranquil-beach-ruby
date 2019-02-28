@@ -33,4 +33,24 @@ describe 'Backtracking' do
       expect(obj.combination_sum(candidates, target)).to match_array(expected)
     end
   end
+
+  context Subsets do
+    let(:obj) { Subsets.new }
+
+    it 'returns power set of [1, 2, 3]' do
+      nums = [1,2,3]
+      expected =
+          [
+              [3],
+              [1],
+              [2],
+              [1,2,3],
+              [1,3],
+              [2,3],
+              [1,2],
+              []
+          ]
+      expect(obj.subsets(nums).sort).to eq(expected.sort)
+    end
+  end
 end
