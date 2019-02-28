@@ -43,4 +43,16 @@ describe 'Sorting and Searching' do
       expect(obj.min_meeting_rooms(intervals)).to eq(expected)
     end
   end
+
+  context SortedArray do
+    let(:obj) { SortedArray.new }
+
+    it 'should return sorted array' do
+      nums1, m = [1,2,3,0,0,0], 3
+      nums2, n = [2,5,6], 3
+      expected = [1,2,2,3,5,6]
+      obj.merge(nums1, m, nums2, n)
+      expect(nums1).to eq(expected)
+    end
+  end
 end
