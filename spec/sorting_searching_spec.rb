@@ -94,4 +94,20 @@ describe 'Sorting and Searching' do
       expect(obj.search(nums, target)).to eq(expected)
     end
   end
+
+  context RotatedSortedArrayWithDup do
+    let(:obj) { RotatedSortedArrayWithDup.new }
+
+    it 'returns true for [2,5,6,0,0,1,2], 0' do
+      nums = [2,5,6,0,0,1,2]
+      target = 0
+      expect(obj.search(nums, target)).to be_truthy
+    end
+
+    it 'returns false for' do
+      nums = [2,5,6,0,0,1,2]
+      target = 3
+      expect(obj.search(nums, target)).to be_falsey
+    end
+  end
 end
