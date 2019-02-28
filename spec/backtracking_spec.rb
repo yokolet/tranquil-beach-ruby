@@ -53,4 +53,21 @@ describe 'Backtracking' do
       expect(obj.subsets(nums).sort).to eq(expected.sort)
     end
   end
+
+  context Permutations do
+    let(:obj) { Permutations.new }
+
+    it 'returns all permutations for [1, 2, 3]' do
+      nums = [1, 2, 3]
+      expected = [
+          [1,2,3],
+          [1,3,2],
+          [2,1,3],
+          [2,3,1],
+          [3,1,2],
+          [3,2,1]
+      ]
+      expect(obj.permute(nums)).to eq(expected)
+    end
+  end
 end
