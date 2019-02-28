@@ -55,4 +55,43 @@ describe 'Sorting and Searching' do
       expect(nums1).to eq(expected)
     end
   end
+
+  context RotatedSortedArray do
+    let(:obj) { RotatedSortedArray.new }
+
+    it 'returns 4 for [4,5,6,7,0,1,2], 0' do
+      nums = [4,5,6,7,0,1,2]
+      target = 0
+      expected = 4
+      expect(obj.search(nums, target)).to eq(expected)
+    end
+
+    it 'returns -1 for [4,5,6,7,0,1,2], 3' do
+      nums = [4,5,6,7,0,1,2]
+      target = 3
+      expected = -1
+      expect(obj.search(nums, target)).to eq(expected)
+    end
+
+    it 'returns -1 for [], 5' do
+      nums = []
+      target = 5
+      expected = -1
+      expect(obj.search(nums, target)).to eq(expected)
+    end
+
+    it 'returns 1 for [1, 3], 1' do
+      nums = [1,3]
+      target = 1
+      expected = 0
+      expect(obj.search(nums, target)).to eq(expected)
+    end
+
+    it 'returns -1 for [5, 1, 3], 2' do
+      nums = [5,1,3]
+      target = 2
+      expected = -1
+      expect(obj.search(nums, target)).to eq(expected)
+    end
+  end
 end
