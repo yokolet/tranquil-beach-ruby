@@ -70,4 +70,24 @@ describe 'Backtracking' do
       expect(obj.permute(nums)).to eq(expected)
     end
   end
+
+  context PermutationsWithDup do
+    let(:obj) { PermutationsWithDup.new }
+
+    it 'returns all unique permutations for [1, 1, 2]' do
+      nums = [1, 1, 2]
+      expected = [
+          [1,1,2],[1,2,1],[2,1,1]
+      ]
+      expect(obj.permute_unique(nums)).to eq(expected)
+    end
+
+    it 'returns all unique permutations for [2,2,1,1]' do
+      nums = [2,2,1,1]
+      expected = [
+          [1,1,2,2],[1,2,1,2],[1,2,2,1],[2,1,1,2],[2,1,2,1],[2,2,1,1]
+      ]
+      expect(obj.permute_unique(nums)).to eq(expected)
+    end
+  end
 end
