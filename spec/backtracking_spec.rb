@@ -90,4 +90,36 @@ describe 'Backtracking' do
       expect(obj.permute_unique(nums)).to eq(expected)
     end
   end
+
+  context NextPermutation do
+    let(:obj) { NextPermutation.new }
+
+    it 'updates from [1,2,3] to [1,3,2]' do
+      nums = [1,2,3]
+      expected = [1,3,2]
+      obj.next_permutation(nums)
+      expect(nums).to eq(expected)
+    end
+
+    it 'updates from [1,2,3] to [1,3,2]' do
+      nums = [3,2,1]
+      expected = [1,2,3]
+      obj.next_permutation(nums)
+      expect(nums).to eq(expected)
+    end
+
+    it 'updates from [1,1 5] to [1,5, 1]' do
+      nums = [1,1,5]
+      expected = [1,5,1]
+      obj.next_permutation(nums)
+      expect(nums).to eq(expected)
+    end
+
+    it 'updates from [1,2] to [2, 1]' do
+      nums = [1,2]
+      expected = [2,1]
+      obj.next_permutation(nums)
+      expect(nums).to eq(expected)
+    end
+  end
 end
