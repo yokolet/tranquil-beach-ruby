@@ -55,4 +55,20 @@ describe 'Other' do
       expect(obj.reverse(x)).to eq(expected)
     end
   end
+
+  context SqrtApprox do
+    let(:obj) { SqrtApprox.new }
+
+    it 'returns 2 when 4 is given' do
+      x = 4
+      expected = 2
+      expect(obj.my_sqrt(x)).to eq(expected)
+    end
+
+    it 'returns 2 when 8 is given' do
+      x = 8
+      expected = 2
+      expect(obj.my_sqrt(x)).to eq(expected)
+    end
+  end
 end
