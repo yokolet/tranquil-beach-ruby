@@ -116,4 +116,33 @@ describe 'Arrays and Strings' do
       expect(obj.min_sub_array_len(s, nums)).to eq(expected)
     end
   end
+
+  context ValidParentheses do
+    let(:obj) { ValidParentheses.new }
+
+    it 'return true for ()' do
+      s = "()"
+      expect(obj.is_valid(s)).to be_truthy
+    end
+
+    it 'return true for ()[]{}' do
+      s = "()[]{}"
+      expect(obj.is_valid(s)).to be_truthy
+    end
+
+    it 'return true for (]' do
+      s = s = "(]"
+      expect(obj.is_valid(s)).to be_falsey
+    end
+
+    it 'return true for ([)]' do
+      s = "([)]"
+      expect(obj.is_valid(s)).to be_falsey
+    end
+
+    it 'return true for {[]}' do
+      s = "{[]}"
+      expect(obj.is_valid(s)).to be_truthy
+    end
+  end
 end
