@@ -33,4 +33,26 @@ describe 'Other' do
       expect(obj.palindrome_pairs(words)).to eq(expected)
     end
   end
+
+  context ReverseInteger do
+    let(:obj) { ReverseInteger.new }
+
+    it 'returns 321 for 123' do
+      x = 123
+      expected = 321
+      expect(obj.reverse(x)).to eq(expected)
+    end
+
+    it 'returns -321 for -123' do
+      x = -123
+      expected = -321
+      expect(obj.reverse(x)).to eq(expected)
+    end
+
+    it 'returns 21 for 120' do
+      x = 120
+      expected = 21
+      expect(obj.reverse(x)).to eq(expected)
+    end
+  end
 end
