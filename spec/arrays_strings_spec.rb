@@ -145,4 +145,20 @@ describe 'Arrays and Strings' do
       expect(obj.is_valid(s)).to be_truthy
     end
   end
+
+  context AllAnagrams do
+    let(:obj) { AllAnagrams.new }
+
+    it 'returns [0, 6] for s = "cbaebabacd", p = "abc"' do
+      s, p = "cbaebabacd", "abc"
+      expected = [0, 6]
+      expect(obj.find_anagrams(s, p)).to eq(expected)
+    end
+
+    it 'returns [3, 4, 6] for s = "abaacbabc", p = "abc"' do
+      s, p = "abaacbabc", "abc"
+      expected = [3,4,6]
+      expect(obj.find_anagrams(s, p)).to eq(expected)
+    end
+  end
 end
