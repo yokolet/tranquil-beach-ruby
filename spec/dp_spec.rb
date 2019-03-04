@@ -132,4 +132,33 @@ describe 'Dynamic Programming' do
       expect(obj.longest_palindrome_subseq(s)).to eq(expected)
     end
   end
+
+  context RegexMatch do
+    let(:obj) { RegexMatch.new }
+
+    it 'returns false for s, p = "aa", "a"' do
+      s, p = "aa", "a"
+      expect(obj.is_match(s, p)).to be_falsey
+    end
+
+    it 'returns false for s, p = "aa", "a*"' do
+      s, p = "aa", "a*"
+      expect(obj.is_match(s, p)).to be_truthy
+    end
+
+    it 'returns false for  s, p = "ab", ".*"' do
+      s, p = "ab", ".*"
+      expect(obj.is_match(s, p)).to be_truthy
+    end
+
+    it 'returns false for s, p = "aab", "c*a*b"' do
+      s, p = "aab", "c*a*b"
+      expect(obj.is_match(s, p)).to be_truthy
+    end
+
+    it 'returns false for s, p = "mississippi", "mis*is*p*."' do
+      s, p = "mississippi", "mis*is*p*."
+      expect(obj.is_match(s, p)).to be_falsey
+    end
+  end
 end

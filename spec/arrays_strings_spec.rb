@@ -161,4 +161,20 @@ describe 'Arrays and Strings' do
       expect(obj.find_anagrams(s, p)).to eq(expected)
     end
   end
+
+  context TwoArrays do
+    let(:obj) { TwoArrays.new }
+
+    it 'returns [2, 2] for [1,2,2,1] and [2,2]' do
+      nums1, nums2 = [1,2,2,1], [2,2]
+      expected = [2, 2]
+      expect(obj.intersect(nums1, nums2)).to eq(expected)
+    end
+
+    it 'returns [4,9] for [4,9,5], [9,4,9,8,4]' do
+      nums1, nums2 = [4,9,5], [9,4,9,8,4]
+      expected = [4, 9]
+      expect(obj.intersect(nums1, nums2)).to eq(expected)
+    end
+  end
 end
