@@ -71,4 +71,22 @@ describe 'Other' do
       expect(obj.my_sqrt(x)).to eq(expected)
     end
   end
+
+  context AdditionByString do
+    let(:obj) { AdditionByString.new }
+
+    it 'returns 1000 for 999 and 1' do
+      num1 = "999"
+      num2 = "1"
+      expected = "1000"
+      expect(obj.add_strings(num1, num2)).to eq(expected)
+    end
+
+    it 'returns 1000 for 999 and 1' do
+      num1 = "1"
+      num2 = "12345"
+      expected = "12346"
+      expect(obj.add_strings(num1, num2)).to eq(expected)
+    end
+  end
 end
