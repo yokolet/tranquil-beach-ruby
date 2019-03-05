@@ -51,4 +51,19 @@ describe 'Linked List' do
       expect(ListNode.stringify(result)).to eq(expected)
     end
   end
+
+  context MergeLists do
+    let(:obj) { MergeLists.new }
+
+    it 'merges k lists' do
+      lists = [
+          ListNode.build([1, 4, 5]),
+          ListNode.build([1, 3, 4]),
+          ListNode.build([2, 6])
+      ]
+      expected = '1 -> 1 -> 2 -> 3 -> 4 -> 4 -> 5 -> 6'
+      result = obj.merge_k_lists(lists)
+      expect(ListNode.stringify(result)).to eq(expected)
+    end
+  end
 end
