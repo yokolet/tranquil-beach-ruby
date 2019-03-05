@@ -161,4 +161,20 @@ describe 'Dynamic Programming' do
       expect(obj.is_match(s, p)).to be_falsey
     end
   end
+
+  context DecodeDigits do
+    let(:obj) { DecodeDigits.new }
+
+    it 'returns 2 for "12"' do
+      s = "12"
+      expected = 2
+      expect(obj.num_decodings(s)).to eq(expected)
+    end
+
+    it 'returns 3 for "226"' do
+      s = "226"
+      expected = 3
+      expect(obj.num_decodings(s)).to eq(expected)
+    end
+  end
 end
