@@ -89,4 +89,26 @@ describe 'Other' do
       expect(obj.add_strings(num1, num2)).to eq(expected)
     end
   end
+
+  context Division do
+    let(:obj) { Division.new }
+
+    it 'returns 2 for 10 / 3' do
+      dividend, divisor = 10, 3
+      expected = 3
+      expect(obj.divide(dividend, divisor)).to eq(expected)
+    end
+
+    it 'returns -2 for 7 / -3' do
+      dividend, divisor = 7, -3
+      expected = -2
+      expect(obj.divide(dividend, divisor)).to eq(expected)
+    end
+
+    it 'returns 2147483647 for -2147483648 / -1' do
+      dividend, divisor = -2147483648, -1
+      expected = 2147483647
+      expect(obj.divide(dividend, divisor)).to eq(expected)
+    end
+  end
 end
