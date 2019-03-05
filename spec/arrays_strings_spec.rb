@@ -177,4 +177,26 @@ describe 'Arrays and Strings' do
       expect(obj.intersect(nums1, nums2)).to eq(expected)
     end
   end
+
+  context LongestSubstring do
+    let(:obj) { LongestSubstring.new }
+
+    it 'returns 3 for "abcabcbb"' do
+      s = "abcabcbb"
+      expected = 3
+      expect(obj.length_of_longest_substring(s)).to eq(expected)
+    end
+
+    it 'returns 1 for " "' do
+      s = " "
+      expected = 1
+      expect(obj.length_of_longest_substring(s)).to eq(expected)
+    end
+
+    it 'returns 1 for "bbbbb"' do
+      s = "bbbbb"
+      expected = 1
+      expect(obj.length_of_longest_substring(s)).to eq(expected)
+    end
+  end
 end
