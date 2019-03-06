@@ -199,4 +199,14 @@ describe 'Arrays and Strings' do
       expect(obj.length_of_longest_substring(s)).to eq(expected)
     end
   end
+
+  context RainWater do
+    let(:obj) { RainWater.new }
+
+    it 'returns 6 for [0,1,0,2,1,0,1,3,2,1,2,1]' do
+      height = [0,1,0,2,1,0,1,3,2,1,2,1]
+      expected = 6
+      expect(obj.trap(height)).to eq(expected)
+    end
+  end
 end
