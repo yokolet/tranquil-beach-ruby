@@ -209,4 +209,33 @@ describe 'Arrays and Strings' do
       expect(obj.trap(height)).to eq(expected)
     end
   end
+
+  context Wildcard do
+    let(:obj) { Wildcard.new }
+
+    it 'returns false for s, p = "aa", "a"' do
+      s, p = "aa", "a"
+      expect(obj.is_match(s, p)).to be_falsey
+    end
+
+    it 'returns true for s, p = "aa", "*"' do
+      s, p = "aa", "*"
+      expect(obj.is_match(s, p)).to be_truthy
+    end
+
+    it 'returns false for s, p = "cb", "?a"' do
+      s, p = "cb", "?a"
+      expect(obj.is_match(s, p)).to be_falsey
+    end
+
+    it 'returns true for s, p = "adceb", "*a*b"' do
+      s, p = "adceb", "*a*b"
+      expect(obj.is_match(s, p)).to be_truthy
+    end
+
+    it 'returns false for s, p = "acdcb", "a*c?b"' do
+      s, p = "acdcb", "a*c?b"
+      expect(obj.is_match(s, p)).to be_falsey
+    end
+  end
 end
