@@ -110,4 +110,22 @@ describe 'Sorting and Searching' do
       expect(obj.search(nums, target)).to be_falsey
     end
   end
+
+  context MergeIntervals do
+    let(:obj) { MergeIntervals.new }
+
+    it 'returns merged result for [[1,3],[2,6],[8,10],[15,18]]' do
+      arr = [[1,3],[2,6],[8,10],[15,18]]
+      expected = [[1,6],[8,10],[15,18]]
+      intervals = arr.map { |interval| Interval.new(interval[0], interval[1]) }
+      expect(obj.merge(intervals).map {|i| [i.start, i.end]}).to eq(expected)
+    end
+
+    it 'returns merged result for [[1,4],[4,5]]' do
+      arr = [[1,4],[4,5]]
+      expected = [[1,5]]
+      intervals = arr.map { |interval| Interval.new(interval[0], interval[1]) }
+      expect(obj.merge(intervals).map {|i| [i.start, i.end]}).to eq(expected)
+    end
+  end
 end
