@@ -108,4 +108,46 @@ describe 'Binary Tree' do
       expect(obj.level_order(root)).to eq(expected)
     end
   end
+
+  context VerticalOrderTraversal do
+    let(:obj) { VerticalOrderTraversal.new }
+
+    it 'returns vertical order array for "3(9)(20(15)(7))"' do
+      s = '3(9)(20(15)(7))'
+      expected = [
+          [9],
+          [3,15],
+          [20],
+          [7]
+      ]
+      root = TreeNode.str2tree(s)
+      expect(obj.vertical_order(root)).to eq(expected)
+    end
+
+    it 'returns vertical order array for "3(9(4)(0))(8(1)(7)"' do
+      s = '3(9(4)(0))(8(1)(7)'
+      expected = [
+          [4],
+          [9],
+          [3,0,1],
+          [8],
+          [7]
+      ]
+      root = TreeNode.str2tree(s)
+      expect(obj.vertical_order(root)).to eq(expected)
+    end
+
+    it 'returns vertical order array for "3(9(4)(0()(2)))(8(1(5))(7))"' do
+      s = "3(9(4)(0()(2)))(8(1(5))(7))"
+      expected = [
+          [4],
+          [9,5],
+          [3,0,1],
+          [8,2],
+          [7]
+      ]
+      root = TreeNode.str2tree(s)
+      expect(obj.vertical_order(root)).to eq(expected)
+    end
+  end
 end
