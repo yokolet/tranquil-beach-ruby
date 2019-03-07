@@ -93,4 +93,19 @@ describe 'Binary Tree' do
       expect(obj.is_valid_bst(root)).to be_falsey
     end
   end
+
+  context LevelOrderTraversal do
+    let(:obj) { LevelOrderTraversal.new }
+
+    it 'returns level order array' do
+      s = '3(9)(20(15)(7))'
+      expected = [
+          [3],
+          [9,20],
+          [15,7]
+      ]
+      root = TreeNode.str2tree(s)
+      expect(obj.level_order(root)).to eq(expected)
+    end
+  end
 end
