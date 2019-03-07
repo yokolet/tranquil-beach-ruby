@@ -150,4 +150,15 @@ describe 'Binary Tree' do
       expect(obj.vertical_order(root)).to eq(expected)
     end
   end
+
+  context ClosestValue do
+    let(:obj) { ClosestValue.new }
+
+    it 'returns 4 for ' do
+      s, target = "4(2(1)(3))(5)", 3.714286
+      expected = 4
+      root = TreeNode.str2tree(s)
+      expect(obj.closest_value(root, target)).to eq(expected)
+    end
+  end
 end
