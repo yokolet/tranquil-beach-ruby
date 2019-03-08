@@ -161,4 +161,24 @@ describe 'Binary Tree' do
       expect(obj.closest_value(root, target)).to eq(expected)
     end
   end
+
+  context PreorderInorder do
+    let(:obj) { PreorderInorder.new }
+
+    it 'constructs a tree "3(9)(20(15)(7))"' do
+      preorder = [3,9,20,15,7]
+      inorder = [9,3,15,20,7]
+      expected = '3(9)(20(15)(7))'
+      root = obj.build_tree(preorder, inorder)
+      expect(TreeNode.tree2str(root)).to eq(expected)
+    end
+
+    it 'constructs a tree ""' do
+      preorder = []
+      inorder = []
+      expected = []
+      root = obj.build_tree(preorder, inorder)
+      expect(root).to eq(expected)
+    end
+  end
 end
