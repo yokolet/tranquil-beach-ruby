@@ -111,4 +111,32 @@ describe 'Other' do
       expect(obj.divide(dividend, divisor)).to eq(expected)
     end
   end
+
+  context IntegerToEnglish do
+    let(:obj) { IntegerToEnglish.new }
+
+    it 'converts 123' do
+      num = 123
+      expected = "One Hundred Twenty Three"
+      expect(obj.number_to_words(num)).to eq(expected)
+    end
+
+    it 'converts 0' do
+      num = 0
+      expected = "Zero"
+      expect(obj.number_to_words(num)).to eq(expected)
+    end
+
+    it 'converts 50868' do
+      num = 50868
+      expected = "Fifty Thousand Eight Hundred Sixty Eight"
+      expect(obj.number_to_words(num)).to eq(expected)
+    end
+
+    it 'converts 1234567891' do
+      num = 1234567891
+      expected = "One Billion Two Hundred Thirty Four Million Five Hundred Sixty Seven Thousand Eight Hundred Ninety One"
+      expect(obj.number_to_words(num)).to eq(expected)
+    end
+  end
 end

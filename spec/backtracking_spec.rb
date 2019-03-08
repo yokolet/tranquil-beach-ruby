@@ -122,4 +122,26 @@ describe 'Backtracking' do
       expect(nums).to eq(expected)
     end
   end
+
+  context InvalidParentheses do
+    let(:obj) { InvalidParentheses.new }
+
+    it 'returns valid parens for "()())()"' do
+      s = "()())()"
+      expected = ["()()()", "(())()"]
+      expect(obj.remove_invalid_parentheses(s)).to match_array(expected)
+    end
+
+    it 'returns valid parens for "(a)())()"' do
+      s = "(a)())()"
+      expected = ["(a)()()", "(a())()"]
+      expect(obj.remove_invalid_parentheses(s)).to match_array(expected)
+    end
+
+    it 'returns valid parens for ")("' do
+      s = ")("
+      expected = [""]
+      expect(obj.remove_invalid_parentheses(s)).to match_array(expected)
+    end
+  end
 end
