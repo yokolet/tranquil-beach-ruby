@@ -238,4 +238,15 @@ describe 'Arrays and Strings' do
       expect(obj.is_match(s, p)).to be_falsey
     end
   end
+
+  context Tasks do
+    let(:obj) { Tasks.new }
+
+    it 'returns 8' do
+      tasks, n = ["A","A","A","B","B","B"], 2
+      expected = 8
+      expect(obj.least_interval(tasks, n)).to eq(expected)
+    end
+
+  end
 end
