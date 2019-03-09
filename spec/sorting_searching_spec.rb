@@ -128,4 +128,14 @@ describe 'Sorting and Searching' do
       expect(obj.merge(intervals).map {|i| [i.start, i.end]}).to eq(expected)
     end
   end
+
+  context MinRange do
+    let(:obj) { MinRange.new }
+
+    it 'returns min range of [20, 24]' do
+      nums = [[4,10,15,24,26], [0,9,12,20], [5,18,22,30]]
+      expected = [20,24]
+      expect(obj.smallest_range(nums)).to eq(expected)
+    end
+  end
 end
