@@ -258,4 +258,33 @@ describe 'Arrays and Strings' do
       expect(obj.product_except_self(nums)).to eq(expected)
     end
   end
+
+  context Monotonic do
+    let(:obj) { Monotonic.new }
+
+    it 'returns true for [1,2,2,3]' do
+      nums = [1,2,2,3]
+      expect(obj.is_monotonic(nums)).to be_truthy
+    end
+
+    it 'returns true for [6,5,4,4]' do
+      nums = [6,5,4,4]
+      expect(obj.is_monotonic(nums)).to be_truthy
+    end
+
+    it 'returns false for [1,3,2]' do
+      nums = [1,3,2]
+      expect(obj.is_monotonic(nums)).to be_falsey
+    end
+
+    it 'returns true for [1,2,4,5]' do
+      nums = [1,2,4,5]
+      expect(obj.is_monotonic(nums)).to be_truthy
+    end
+
+    it 'returns true for [1,1,1]' do
+      nums = [1,1,1]
+      expect(obj.is_monotonic(nums)).to be_truthy
+    end
+  end
 end
