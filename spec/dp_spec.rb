@@ -177,4 +177,29 @@ describe 'Dynamic Programming' do
       expect(obj.num_decodings(s)).to eq(expected)
     end
   end
+  
+  context SubarraySumNK do
+    let(:obj) { SubarraySumNK.new }
+
+    it 'return true for [23, 2, 4, 6, 7], 6' do
+      nums, k = [23, 2, 4, 6, 7], 6
+      expect(obj.check_subarray_sum(nums, k)).to be_truthy
+    end
+
+    it 'return true for [23, 2, 6, 4, 7], 6' do
+      nums, k = [23, 2, 6, 4, 7], 6
+      expect(obj.check_subarray_sum(nums, k)).to be_truthy
+    end
+
+    it 'return true for [0, 0], 0' do
+      nums, k = [0, 0], 0
+      expect(obj.check_subarray_sum(nums, k)).to be_truthy
+    end
+
+    it 'return true for [0,1,0], 0' do
+      nums, k = [0,1,0], 0
+      expect(obj.check_subarray_sum(nums, k)).to be_falsey
+    end
+  end
+
 end
