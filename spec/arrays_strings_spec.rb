@@ -247,6 +247,15 @@ describe 'Arrays and Strings' do
       expected = 8
       expect(obj.least_interval(tasks, n)).to eq(expected)
     end
+  end
 
+  context Product do
+    let(:obj) { Product.new }
+
+    it 'returns [24,12,8,6]' do
+      nums = [1,2,3,4]
+      expected = [24,12,8,6]
+      expect(obj.product_except_self(nums)).to eq(expected)
+    end
   end
 end
