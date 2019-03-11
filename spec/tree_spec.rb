@@ -181,4 +181,15 @@ describe 'Binary Tree' do
       expect(root).to eq(expected)
     end
   end
+
+  context RightView do
+    let(:obj) { RightView.new }
+
+    it 'returns [1, 3, 4]' do
+      s = '1(2()(5))(3()(4))'
+      expected = [1, 3, 4]
+      root = TreeNode.str2tree(s)
+      expect(obj.right_side_view(root)).to eq(expected)
+    end
+  end
 end
