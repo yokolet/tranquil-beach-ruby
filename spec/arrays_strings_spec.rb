@@ -297,4 +297,26 @@ describe 'Arrays and Strings' do
       expect(obj.min_window(s, t)).to eq(expected)
     end
   end
+
+  context Lcis do
+    let(:obj) { Lcis.new }
+
+    it 'returns 3 for [1,3,5,4,7]' do
+      nums = [1,3,5,4,7]
+      expected = 3
+      expect(obj.find_length_of_lcis(nums)).to be(expected)
+    end
+
+    it 'returns 1 for [2,2,2,2,2]' do
+      nums = [2,2,2,2,2]
+      expected = 1
+      expect(obj.find_length_of_lcis(nums)).to be(expected)
+    end
+
+    it 'returns 0 for []' do
+      nums = []
+      expected = 0
+      expect(obj.find_length_of_lcis(nums)).to be(expected)
+    end
+  end
 end
