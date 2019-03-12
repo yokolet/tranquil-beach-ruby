@@ -287,4 +287,14 @@ describe 'Arrays and Strings' do
       expect(obj.is_monotonic(nums)).to be_truthy
     end
   end
+
+  context MinWindow do
+    let(:obj) { MinWindow.new }
+
+    it 'should return BANC' do
+      s, t = "ADOBECODEBANC", "ABC"
+      expected = "BANC"
+      expect(obj.min_window(s, t)).to eq(expected)
+    end
+  end
 end
