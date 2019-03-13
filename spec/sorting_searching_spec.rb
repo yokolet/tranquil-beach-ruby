@@ -138,4 +138,23 @@ describe 'Sorting and Searching' do
       expect(obj.smallest_range(nums)).to eq(expected)
     end
   end
+
+  context AlienSort do
+    let(:obj) { AlienSort.new }
+
+    it 'returns true for ["hello","leetcode"]' do
+      words, order = ["hello","leetcode"], "hlabcdefgijkmnopqrstuvwxyz"
+      expect(obj.is_alien_sorted(words, order)).to be_truthy
+    end
+
+    it 'returns false for ["word","world","row"]' do
+      words, order = ["word","world","row"], "worldabcefghijkmnpqstuvxyz"
+      expect(obj.is_alien_sorted(words, order)).to be_falsey
+    end
+
+    it 'returns false for ["apple","app"]' do
+      words, order = ["apple","app"], "abcdefghijklmnopqrstuvwxyz"
+      expect(obj.is_alien_sorted(words, order)).to be_falsey
+    end
+  end
 end
