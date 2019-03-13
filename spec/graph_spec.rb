@@ -17,4 +17,39 @@ describe 'Graph' do
       expect(obj.num_islands(grid)).to eq(expected)
     end
   end
+
+  context Alien do
+    let(:obj) { Alien.new }
+
+    it 'returns wertf' do
+      words = [
+          "wrt",
+          "wrf",
+          "er",
+          "ett",
+          "rftt"
+      ]
+      expected = "wertf"
+      expect(obj.alien_order(words)).to eq(expected)
+    end
+
+    it 'returns zx' do
+      words = [
+          "z",
+          "x"
+      ]
+      expected = "zx"
+      expect(obj.alien_order(words)).to eq(expected)
+    end
+
+    it 'returns wertf' do
+      words = [
+          "z",
+          "x",
+          "z"
+      ]
+      expected = ""
+      expect(obj.alien_order(words)).to eq(expected)
+    end
+  end
 end
