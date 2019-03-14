@@ -15,4 +15,17 @@ describe 'Design' do
       expect(result).to eq(expected)
     end
   end
+
+  context BadVersion do
+    let(:obj) { BadVersion.new }
+
+    it 'return 4 among 5' do
+      allow(obj).to receive(:is_bad_version) do |arg|
+        arg >= 4 ? true : false
+      end
+      n = 5
+      expected = 4
+      expect(obj.first_bad_version(n)).to eq(expected)
+    end
+  end
 end
