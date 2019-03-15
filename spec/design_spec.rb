@@ -1,5 +1,6 @@
 require 'rspec'
 Dir["#{File.dirname(__FILE__)}/../lib/design/*.rb"].each {|file| require file }
+require "#{File.dirname(__FILE__)}/../lib/tree/tree_node.rb"
 
 describe 'Design' do
   context WordDictionary do
@@ -26,6 +27,23 @@ describe 'Design' do
       n = 5
       expected = 4
       expect(obj.first_bad_version(n)).to eq(expected)
+    end
+  end
+
+  context BSTIterator do
+    it 'iterates bst' do
+      s = '7(3)(15(9)(20))'
+      root = TreeNode.str2tree(s)
+      iterator = BSTIterator.new(root)
+      expect(iterator.next).to eq(3)
+      expect(iterator.next).to eq(7)
+      expect(iterator.has_next).to be_truthy
+      expect(iterator.next).to eq(9)
+      expect(iterator.has_next).to be_truthy
+      expect(iterator.next).to eq(15)
+      expect(iterator.has_next).to be_truthy
+      expect(iterator.next).to eq(20)
+      expect(iterator.has_next).to be_falsey
     end
   end
 end
