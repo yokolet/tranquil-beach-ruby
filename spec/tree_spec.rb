@@ -192,4 +192,29 @@ describe 'Binary Tree' do
       expect(obj.right_side_view(root)).to eq(expected)
     end
   end
+
+  context MaxPathSum do
+    let(:obj) { MaxPathSum.new }
+
+    it 'returns 6 for "1(2)(3)"' do
+      s = "1(2)(3)"
+      expected = 6
+      root = TreeNode.str2tree(s)
+      expect(obj.max_path_sum(root)).to eq(expected)
+    end
+
+    it 'returns 42 for "-10(9)(20(15)(7))"' do
+      s = "-10(9)(20(15)(7))"
+      expected = 42
+      root = TreeNode.str2tree(s)
+      expect(obj.max_path_sum(root)).to eq(expected)
+    end
+
+    it 'returns -3 for "-3"' do
+      s = "-3"
+      expected = -3
+      root = TreeNode.str2tree(s)
+      expect(obj.max_path_sum(root)).to eq(expected)
+    end
+  end
 end
