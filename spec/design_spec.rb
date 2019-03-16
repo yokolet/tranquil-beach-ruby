@@ -46,4 +46,20 @@ describe 'Design' do
       expect(iterator.has_next).to be_falsey
     end
   end
+
+  context NumMatrix do
+    it 'responds to queries' do
+      matrix = [
+          [3, 0, 1, 4, 2],
+          [5, 6, 3, 2, 1],
+          [1, 2, 0, 1, 5],
+          [4, 1, 0, 1, 7],
+          [1, 0, 3, 0, 5]
+      ]
+      obj = NumMatrix.new(matrix)
+      expect(obj.sum_region(2, 1, 4, 3)).to eq(8)
+      expect(obj.sum_region(1, 1, 2, 2)).to eq(11)
+      expect(obj.sum_region(1, 2, 2, 4)).to eq(12)
+    end
+  end
 end
