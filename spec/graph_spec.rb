@@ -52,4 +52,18 @@ describe 'Graph' do
       expect(obj.alien_order(words)).to eq(expected)
     end
   end
+
+  context Bipartite do
+    let(:obj) { Bipartite.new }
+
+    it 'returns true' do
+      graph = [[1,3], [0,2], [1,3], [0,2]]
+      expect(obj.is_bipartite(graph)).to be_truthy
+    end
+
+    it 'returns false' do
+      graph = [[1,2,3], [0,2], [0,1,3], [0,2]]
+      expect(obj.is_bipartite(graph)).to be_falsey
+    end
+  end
 end
