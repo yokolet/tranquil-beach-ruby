@@ -139,4 +139,23 @@ describe 'Other' do
       expect(obj.number_to_words(num)).to eq(expected)
     end
   end
+
+  context Strobogrammatic do
+    let(:obj) { Strobogrammatic.new }
+
+    it 'returns tru fo "69"' do
+      num = "69"
+      expect(obj.is_strobogrammatic(num)).to be_truthy
+    end
+
+    it 'returns tru fo "69"' do
+      num = "88"
+      expect(obj.is_strobogrammatic(num)).to be_truthy
+    end
+
+    it 'returns tru fo "69"' do
+      num = "962"
+      expect(obj.is_strobogrammatic(num)).to be_falsey
+    end
+  end
 end
