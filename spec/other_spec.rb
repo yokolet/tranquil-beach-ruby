@@ -158,4 +158,20 @@ describe 'Other' do
       expect(obj.is_strobogrammatic(num)).to be_falsey
     end
   end
+
+  context ExclusiveTime do
+    let(:obj) { ExclusiveTime.new }
+
+    it 'returns [3, 4]' do
+      n = 2
+      logs = [
+          "0:start:0",
+          "1:start:2",
+          "1:end:5",
+          "0:end:6"
+      ]
+      expected = [3, 4]
+      expect(obj.exclusive_time(n, logs)).to eq(expected)
+    end
+  end
 end
