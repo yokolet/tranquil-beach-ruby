@@ -174,4 +174,38 @@ describe 'Other' do
       expect(obj.exclusive_time(n, logs)).to eq(expected)
     end
   end
+
+  context RomanToInteger do
+    let(:obj) { RomanToInteger.new }
+
+    it 'return 3 for "III"' do
+      s = "III"
+      expected = 3
+      expect(obj.roman_to_int(s)).to eq(expected)
+    end
+
+    it 'return 4 for "IV"' do
+      s = "IV"
+      expected = 4
+      expect(obj.roman_to_int(s)).to eq(expected)
+    end
+
+    it 'return 9 for "IX"' do
+      s = "IX"
+      expected = 9
+      expect(obj.roman_to_int(s)).to eq(expected)
+    end
+
+    it 'return 58 for "LVIII"' do
+      s = "LVIII"
+      expected = 58
+      expect(obj.roman_to_int(s)).to eq(expected)
+    end
+
+    it 'return 1994 for "MCMXCIV"' do
+      s = "MCMXCIV"
+      expected = 1994
+      expect(obj.roman_to_int(s)).to eq(expected)
+    end
+  end
 end
