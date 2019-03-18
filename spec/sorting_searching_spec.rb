@@ -157,4 +157,20 @@ describe 'Sorting and Searching' do
       expect(obj.is_alien_sorted(words, order)).to be_falsey
     end
   end
+
+  context KClosest do
+    let(:obj) { KClosest.new }
+
+    it 'returns [[-2,2]]' do
+      points, K = [[1,3],[-2,2]], 1
+      expected = [[-2,2]]
+      expect(obj.k_closest(points, K)).to eq(expected)
+    end
+
+    it 'returns [[3,3],[-2,4]]' do
+      points, K = [[3,3],[5,-1],[-2,4]], 2
+      expected = [[3,3],[-2,4]]
+      expect(obj.k_closest(points, K)).to match_array(expected)
+    end
+  end
 end
