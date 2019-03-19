@@ -62,4 +62,43 @@ describe 'Design' do
       expect(obj.sum_region(1, 2, 2, 4)).to eq(12)
     end
   end
+
+  context LRUCache do
+    it 'cache data in least recently used manner - 1' do
+      ops = ["LRUCache","put","put","get","put","get","put","get","get","get"]
+      params = [[2],[1,1],[2,2],[1],[3,3],[2],[4,4],[1],[3],[4]]
+      expected = [nil,nil,nil,1,nil,-1,nil,-1,3,4]
+      cache = LRUCache.new(2)
+      result = [nil]
+      (1...ops.size).each do |i|
+        result << cache.send(ops[i], *params[i])
+      end
+      expect(result).to eq(expected)
+    end
+
+    it 'cache data in least recently used manner - 2' do
+      ops = ["LRUCache","get","put","get","put","put","get","get"]
+      params = [[2],[2],[2,6],[1],[1,5],[1,2],[1],[2]]
+      expected = [nil,-1,nil,-1,nil,nil,2,6]
+      cache = LRUCache.new(2)
+      result = [nil]
+      (1...ops.size).each do |i|
+        result << cache.send(ops[i], *params[i])
+      end
+      expect(result).to eq(expected)
+    end
+
+    it 'cache' do
+      ops = ["LRUCache","put","put","put","put","get","get"]
+      params = [[2],[2,1],[1,1],[2,3],[4,1],[1],[2]]
+      null = nil
+      expected = [null,null,null,null,null,-1,3]
+      cache = LRUCache.new(2)
+      result = [nil]
+      (1...ops.size).each do |i|
+        result << cache.send(ops[i], *params[i])
+      end
+      expect(result).to eq(expected)
+    end
+  end
 end
