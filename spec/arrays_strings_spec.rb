@@ -319,4 +319,25 @@ describe 'Arrays and Strings' do
       expect(obj.find_length_of_lcis(nums)).to be(expected)
     end
   end
+
+  context GameOfLife do
+    let(:obj) { GameOfLife.new }
+
+    it 'updates the board' do
+      board = [
+          [0,1,0],
+          [0,0,1],
+          [1,1,1],
+          [0,0,0]
+      ]
+      expected = [
+          [0,0,0],
+          [1,0,1],
+          [0,1,1],
+          [0,1,0]
+      ]
+      obj.game_of_life(board)
+      expect(board).to eq(expected)
+    end
+  end
 end
