@@ -340,4 +340,15 @@ describe 'Arrays and Strings' do
       expect(board).to eq(expected)
     end
   end
+
+  context MostCommon do
+    let(:obj) { MostCommon.new }
+
+    it 'finds most common word "ball"' do
+      paragraph = "Bob hit a ball, the hit BALL flew far after it was hit."
+      banned = ["hit"]
+      expected = "ball"
+      expect(obj.most_common_word(paragraph, banned)).to eq(expected)
+    end
+  end
 end
