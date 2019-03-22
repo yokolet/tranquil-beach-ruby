@@ -217,4 +217,34 @@ describe 'Binary Tree' do
       expect(obj.max_path_sum(root)).to eq(expected)
     end
   end
+
+  def build(ary, p, q)
+    nodes = {}
+    ary.each { |v| nodes[v] = TreeNode.new(v) if !v.nil? }
+    return nodes, nodes[p], nodes[q]
+  end
+
+  context Lca do
+    let(:obj) { Lca.new }
+
+    it 'returns lca of 3' do
+      nodes, p, q = build([3,5,1,6,2,0,8,nil,nil,7,4], 5, 1)
+      nodes[3].left, nodes[3].right = nodes[5], nodes[1]
+      nodes[5].left, nodes[5].right = nodes[6], nodes[2]
+      nodes[1].left, nodes[1].right = nodes[0], nodes[8]
+      nodes[2].left, nodes[2].right = nodes[7], nodes[4]
+      expected = 3
+      expect(obj.lowest_common_ancestor(nodes[3], p, q).val).to eq(expected)
+    end
+
+    it 'returns lca of 5' do
+      nodes, p, q = build([3,5,1,6,2,0,8,nil,nil,7,4], 5, 4)
+      nodes[3].left, nodes[3].right = nodes[5], nodes[1]
+      nodes[5].left, nodes[5].right = nodes[6], nodes[2]
+      nodes[1].left, nodes[1].right = nodes[0], nodes[8]
+      nodes[2].left, nodes[2].right = nodes[7], nodes[4]
+      expected = 5
+      expect(obj.lowest_common_ancestor(nodes[3], p, q).val).to eq(expected)
+    end
+  end
 end
