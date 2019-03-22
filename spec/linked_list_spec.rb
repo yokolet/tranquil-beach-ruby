@@ -66,4 +66,29 @@ describe 'Linked List' do
       expect(ListNode.stringify(result)).to eq(expected)
     end
   end
+
+  context ReorderList do
+    let(:obj) { ReorderList.new }
+
+    it 'returns "1 -> 4 -> 2 -> 3"' do
+      head = ListNode.build([1, 2, 3, 4])
+      expected = '1 -> 4 -> 2 -> 3'
+      obj.reorder_list(head)
+      expect(ListNode.stringify(head)).to eq(expected)
+    end
+
+    it 'returns "1 -> 5 -> 2 -> 4 -> 3"' do
+      head = ListNode.build([1, 2, 3, 4, 5])
+      expected = '1 -> 5 -> 2 -> 4 -> 3'
+      obj.reorder_list(head)
+      expect(ListNode.stringify(head)).to eq(expected)
+    end
+
+    it 'returns ""' do
+      head = ListNode.build([])
+      expected = ''
+      obj.reorder_list(head)
+      expect(ListNode.stringify(head)).to eq(expected)
+    end
+  end
 end
