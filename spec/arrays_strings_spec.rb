@@ -379,4 +379,20 @@ describe 'Arrays and Strings' do
       expect(obj.plus_one(digits)).to eq(expected)
     end
   end
+
+  context CountPalindromes do
+    let(:obj) { CountPalindromes.new }
+
+    it 'counts 3' do
+      s = "abc"
+      expected = 3
+      expect(obj.count_substrings(s)).to eq(expected)
+    end
+
+    it 'counts 6' do
+      s = "aaa"
+      expected = 6
+      expect(obj.count_substrings(s)).to eq(expected)
+    end
+  end
 end
