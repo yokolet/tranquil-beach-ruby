@@ -91,4 +91,22 @@ describe 'Linked List' do
       expect(ListNode.stringify(head)).to eq(expected)
     end
   end
+
+  context SortList do
+    let(:obj) { SortList.new }
+
+    it 'returns "1 -> 2 -> 3 -> 4"' do
+      head = ListNode.build([4, 2, 1, 3])
+      expected = "1 -> 2 -> 3 -> 4"
+      result = obj.sort_list(head)
+      expect(ListNode.stringify(result)).to eq(expected)
+    end
+
+    it 'returns "1 -> 2 -> 3 -> 4"' do
+      head = ListNode.build([-1, 5, 3, 4, 0])
+      expected = "-1 -> 0 -> 3 -> 4 -> 5"
+      result = obj.sort_list(head)
+      expect(ListNode.stringify(result)).to eq(expected)
+    end
+  end
 end
