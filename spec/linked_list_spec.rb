@@ -109,4 +109,18 @@ describe 'Linked List' do
       expect(ListNode.stringify(result)).to eq(expected)
     end
   end
+
+  context PalindromeList do
+    let(:obj) { PalindromeList.new }
+
+    it 'returns false for 1->2' do
+      head = ListNode.build([1, 2])
+      expect(obj.is_palindrome(head)).to be_falsey
+    end
+
+    it 'returns true for 1->2->2->1' do
+      head = ListNode.build([1, 2, 2, 1])
+      expect(obj.is_palindrome(head)).to be_truthy
+    end
+  end
 end
