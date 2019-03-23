@@ -351,4 +351,32 @@ describe 'Arrays and Strings' do
       expect(obj.most_common_word(paragraph, banned)).to eq(expected)
     end
   end
+
+  context PlusOne do
+    let(:obj) { PlusOne.new }
+
+    it 'returns [1,2,4]' do
+      digits = [1,2,3]
+      expected = [1,2,4]
+      expect(obj.plus_one(digits)).to eq(expected)
+    end
+
+    it 'returns [4,3,2,2]' do
+      digits = [4,3,2,1]
+      expected = [4,3,2,2]
+      expect(obj.plus_one(digits)).to eq(expected)
+    end
+
+    it 'returns [4,4,0,0]' do
+      digits = [4,3,9,9]
+      expected = [4,4,0,0]
+      expect(obj.plus_one(digits)).to eq(expected)
+    end
+
+    it 'returns [1,0]' do
+      digits = [9]
+      expected = [1,0]
+      expect(obj.plus_one(digits)).to eq(expected)
+    end
+  end
 end
