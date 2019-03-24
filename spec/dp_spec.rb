@@ -202,4 +202,19 @@ describe 'Dynamic Programming' do
     end
   end
 
+  context MaxSum3 do
+    let(:obj) { MaxSum3.new }
+
+    it 'returns [0, 3, 5]' do
+      nums, k = [1,2,1,2,6,7,5,1], 2
+      expected = [0, 3, 5]
+      expect(obj.max_sum_of_three_subarrays(nums, k)).to eq(expected)
+    end
+
+    it 'returns ' do
+      nums, k = [20,18,9,2,14,1,10,3,11,18], 3
+      expected = [0,4,7]
+      expect(obj.max_sum_of_three_subarrays(nums, k)).to eq(expected)
+    end
+  end
 end
