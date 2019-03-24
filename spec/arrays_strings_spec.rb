@@ -395,4 +395,20 @@ describe 'Arrays and Strings' do
       expect(obj.count_substrings(s)).to eq(expected)
     end
   end
+
+  context TopK do
+    let(:obj) { TopK.new }
+
+    it 'returns [1, 2]' do
+      nums, k = [1,1,1,2,2,3], 2
+      expected = [1,2]
+      expect(obj.top_k_frequent(nums, k)).to eq(expected)
+    end
+
+    it 'returns [1]' do
+      nums, k = [1], 1
+      expected = [1]
+      expect(obj.top_k_frequent(nums, k)).to eq(expected)
+    end
+  end
 end
