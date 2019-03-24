@@ -411,4 +411,22 @@ describe 'Arrays and Strings' do
       expect(obj.top_k_frequent(nums, k)).to eq(expected)
     end
   end
+
+  context MinIndexSum do
+    let(:obj) { MinIndexSum.new }
+
+    it 'returns ["Shogun"]' do
+      list1 = ["Shogun", "Tapioca Express", "Burger King", "KFC"]
+      list2 = ["Piatti", "The Grill at Torrey Pines", "Hungry Hunter Steakhouse", "Shogun"]
+      expected = ["Shogun"]
+      expect(obj.find_restaurant(list1, list2)).to match_array(expected)
+    end
+
+    it 'returns ["Shogun"] again' do
+      list1 = ["Shogun", "Tapioca Express", "Burger King", "KFC"]
+      list2 = ["KFC", "Shogun", "Burger King"]
+      expected = ["Shogun"]
+      expect(obj.find_restaurant(list1, list2)).to match_array(expected)
+    end
+  end
 end
