@@ -173,4 +173,20 @@ describe 'Sorting and Searching' do
       expect(obj.k_closest(points, K)).to match_array(expected)
     end
   end
+
+  context PeakElement do
+    let(:obj) { PeakElement.new }
+
+    it 'return 2' do
+      nums = [1,2,3,1]
+      expected = 2
+      expect(obj.find_peak_element(nums)).to eq(expected)
+    end
+
+    it 'return 1 or 5' do
+      nums = [1,2,1,3,5,6,4]
+      expected = [1, 5]
+      expect(obj.find_peak_element(nums)).to satisfy { |val| expected.include?(val) }
+    end
+  end
 end
