@@ -429,4 +429,38 @@ describe 'Arrays and Strings' do
       expect(obj.find_restaurant(list1, list2)).to match_array(expected)
     end
   end
+
+  context ValidNumber do
+    let(:obj) { ValidNumber.new }
+
+    shared_examples_for "valid number" do |s|
+      it "returns true for '#{s}'" do
+        expect(ValidNumber.new.is_number(s)).to be_truthy
+      end
+    end
+
+    it_behaves_like "valid number", "0"
+    it_behaves_like "valid number", " 0.1 "
+    it_behaves_like "valid number", "2e10"
+    it_behaves_like "valid number", " -90e3   "
+    it_behaves_like "valid number", " 6e-1"
+    it_behaves_like "valid number", "53.5e93"
+    it_behaves_like "valid number", ".1"
+    it_behaves_like "valid number", "3."
+
+    shared_examples_for "invalid number" do |s|
+      it "returns false for '#{s}'" do
+        expect(ValidNumber.new.is_number(s)).to be_falsey
+      end
+    end
+
+    it_behaves_like "invalid number", "abc"
+    it_behaves_like "invalid number", "1 a"
+    it_behaves_like "invalid number", " 1e"
+    it_behaves_like "invalid number", "e3"
+    it_behaves_like "invalid number", " 99e2.5 "
+    it_behaves_like "invalid number", " --6 "
+    it_behaves_like "invalid number", "-+3"
+    it_behaves_like "invalid number", "95a54e53"
+  end
 end
