@@ -66,4 +66,26 @@ describe 'Graph' do
       expect(obj.is_bipartite(graph)).to be_falsey
     end
   end
+
+  context Itinerary do
+    let(:obj) { Itinerary.new }
+
+    it 'returns route1' do
+      tickets = [["MUC", "LHR"], ["JFK", "MUC"], ["SFO", "SJC"], ["LHR", "SFO"]]
+      expected = ["JFK", "MUC", "LHR", "SFO", "SJC"]
+      expect(obj.find_itinerary(tickets)).to eq(expected)
+    end
+
+    it 'returns route2' do
+      tickets = [["JFK","SFO"],["JFK","ATL"],["SFO","ATL"],["ATL","JFK"],["ATL","SFO"]]
+      expected = ["JFK","ATL","JFK","SFO","ATL","SFO"]
+      expect(obj.find_itinerary(tickets)).to eq(expected)
+    end
+
+    it 'returns route3' do
+      tickets = [["JFK","KUL"],["JFK","NRT"],["NRT","JFK"]]
+      expected = ["JFK","NRT","JFK","KUL"]
+      expect(obj.find_itinerary(tickets)).to eq(expected)
+    end
+  end
 end
