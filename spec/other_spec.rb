@@ -208,4 +208,26 @@ describe 'Other' do
       expect(obj.roman_to_int(s)).to eq(expected)
     end
   end
+
+  context ColumnTitle do
+    let(:obj) { ColumnTitle.new }
+
+    it 'return "A"' do
+      n = 1
+      expected = "A"
+      expect(obj.convert_to_title(n)).to eq(expected)
+    end
+
+    it 'return "A"' do
+      n = 28
+      expected = "AB"
+      expect(obj.convert_to_title(n)).to eq(expected)
+    end
+
+    it 'return "A"' do
+      n = 701
+      expected = "ZY"
+      expect(obj.convert_to_title(n)).to eq(expected)
+    end
+  end
 end
