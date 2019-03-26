@@ -218,16 +218,38 @@ describe 'Other' do
       expect(obj.convert_to_title(n)).to eq(expected)
     end
 
-    it 'return "A"' do
+    it 'return "AB"' do
       n = 28
       expected = "AB"
       expect(obj.convert_to_title(n)).to eq(expected)
     end
 
-    it 'return "A"' do
+    it 'return "ZY"' do
       n = 701
       expected = "ZY"
       expect(obj.convert_to_title(n)).to eq(expected)
+    end
+  end
+
+  context ColumnNumber do
+    let(:obj) { ColumnNumber.new }
+
+    it 'returns 1' do
+      s = "A"
+      expected = 1
+      expect(obj.title_to_number(s)).to eq(expected)
+    end
+
+    it 'returns 1' do
+      s = "AB"
+      expected = 28
+      expect(obj.title_to_number(s)).to eq(expected)
+    end
+
+    it 'returns 701' do
+      s = "ZY"
+      expected = 701
+      expect(obj.title_to_number(s)).to eq(expected)
     end
   end
 end
