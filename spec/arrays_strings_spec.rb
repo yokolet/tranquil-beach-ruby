@@ -463,4 +463,20 @@ describe 'Arrays and Strings' do
     it_behaves_like "invalid number", "-+3"
     it_behaves_like "invalid number", "95a54e53"
   end
+
+  context TopWords do
+    let(:obj) { TopWords.new }
+
+    it 'returns ["i", "love"]' do
+      words, k = ["i", "love", "leetcode", "i", "love", "coding"], 2
+      expected = ["i", "love"]
+      expect(obj.top_k_frequent(words, k)).to eq(expected)
+    end
+
+    it 'returns ["i", "love"]' do
+      words, k = ["the", "day", "is", "sunny", "the", "the", "the", "sunny", "is", "is"], 4
+      expected = ["the", "is", "sunny", "day"]
+      expect(obj.top_k_frequent(words, k)).to eq(expected)
+    end
+  end
 end
