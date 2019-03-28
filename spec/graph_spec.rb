@@ -88,4 +88,14 @@ describe 'Graph' do
       expect(obj.find_itinerary(tickets)).to eq(expected)
     end
   end
+
+  context ShortestDistance do
+    let(:obj) { ShortestDistance.new }
+
+    it 'returns 7' do
+      grid = [[1,0,2,0,1],[0,0,0,0,0],[0,0,1,0,0]]
+      expected = 7
+      expect(obj.shortest_distance(grid)).to eq(expected)
+    end
+  end
 end
