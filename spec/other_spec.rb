@@ -252,4 +252,20 @@ describe 'Other' do
       expect(obj.title_to_number(s)).to eq(expected)
     end
   end
+
+  context PrisonCells do
+    let(:obj) { PrisonCells.new }
+
+    it 'returns 7 days after' do
+      cells, n = [0,1,0,1,1,0,0,1], 7
+      expected = [0,0,1,1,0,0,0,0]
+      expect(obj.prison_after_n_days(cells, n)).to eq(expected)
+    end
+
+    it 'returns 1000000000 days after' do
+      cells, n = [1,0,0,1,0,0,1,0], 1000000000
+      expected = [0,0,1,1,1,1,1,0]
+      expect(obj.prison_after_n_days(cells, n)).to eq(expected)
+    end
+  end
 end
