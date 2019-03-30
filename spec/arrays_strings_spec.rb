@@ -479,4 +479,14 @@ describe 'Arrays and Strings' do
       expect(obj.top_k_frequent(words, k)).to eq(expected)
     end
   end
+
+  context ReorderLog do
+    let(:obj) { ReorderLog.new }
+
+    it 'reorders the list' do
+      logs = ["a1 9 2 3 1","g1 act car","zo4 4 7","ab1 off key dog","a8 act zoo"]
+      expected = ["g1 act car","a8 act zoo","ab1 off key dog","a1 9 2 3 1","zo4 4 7"]
+      expect(obj.reorder_log_files(logs)).to eq(expected)
+    end
+  end
 end
