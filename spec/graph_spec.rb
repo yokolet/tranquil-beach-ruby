@@ -98,4 +98,32 @@ describe 'Graph' do
       expect(obj.shortest_distance(grid)).to eq(expected)
     end
   end
+
+  context Maze do
+    let(:obj) { Maze.new }
+
+    it 'returns true for prob1' do
+      maze = [
+          [0,0,1,0,0],
+          [0,0,0,0,0],
+          [0,0,0,1,0],
+          [1,1,0,1,1],
+          [0,0,0,0,0]
+      ]
+      start, destination = [0,4],[4,4]
+      expect(obj.has_path(maze, start, destination)).to be_truthy
+    end
+
+    it 'returns false for prob2' do
+      maze = [
+          [0,0,1,0,0],
+          [0,0,0,0,0],
+          [0,0,0,1,0],
+          [1,1,0,1,1],
+          [0,0,0,0,0]
+      ]
+      start, destination = [0,4],[3,2]
+      expect(obj.has_path(maze, start, destination)).to be_falsey
+    end
+  end
 end
