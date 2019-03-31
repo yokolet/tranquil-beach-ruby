@@ -101,4 +101,18 @@ describe 'Design' do
       expect(result).to eq(expected)
     end
   end
+
+  context MinStack do
+    let(:obj) { MinStack.new }
+
+    it 'returns min by O(1)' do
+      obj.push(-2)
+      obj.push(0)
+      obj.push(-3)
+      expect(obj.get_min).to eq(-3)
+      obj.pop
+      expect(obj.top).to eq(0)
+      expect(obj.get_min).to eq(-2)
+    end
+  end
 end
