@@ -126,4 +126,37 @@ describe 'Graph' do
       expect(obj.has_path(maze, start, destination)).to be_falsey
     end
   end
+
+  context FloodFill do
+    let(:obj) { FloodFill.new }
+
+    it 'changes image given 1, 1, 2' do
+      image = [
+          [1,1,1],
+          [1,1,0],
+          [1,0,1]
+      ]
+      sr, sc, new_color = 1, 1, 2
+      expected = [
+          [2,2,2],
+          [2,2,0],
+          [2,0,1]
+      ]
+      expect(obj.flood_fill(image, sr, sc, new_color)).to eq(expected)
+    end
+
+    it 'changes image given 0, 0, 2' do
+      image = [[0,0,0],[0,0,0]]
+      sr, sc, new_color = 0, 0, 2
+      expected = [[2,2,2],[2,2,2]]
+      expect(obj.flood_fill(image, sr, sc, new_color)).to eq(expected)
+    end
+
+    it 'changes image given 1, 1, 1' do
+      image = [[0,0,0],[0,1,1]]
+      sr, sc, new_color = 1, 1, 1
+      expected = [[0,0,0],[0,1,1]]
+      expect(obj.flood_fill(image, sr, sc, new_color)).to eq(expected)
+    end
+  end
 end
