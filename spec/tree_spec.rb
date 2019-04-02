@@ -247,4 +247,22 @@ describe 'Binary Tree' do
       expect(obj.lowest_common_ancestor(nodes[3], p, q).val).to eq(expected)
     end
   end
+
+  context ZigzagTraversal do
+    let(:obj) { ZigzagTraversal.new }
+
+    it 'returns zigzag starting from 3' do
+      s = '3(9)(20(15)(7))'
+      expected = [[3],[20,9],[15,7]]
+      root = TreeNode.str2tree(s)
+      expect(obj.zigzag_level_order(root)).to eq(expected)
+    end
+
+    it 'returns zigzag starting from 3' do
+      s = '1(2(4))(3()(5))'
+      expected = [[1],[3,2],[4,5]]
+      root = TreeNode.str2tree(s)
+      expect(obj.zigzag_level_order(root)).to eq(expected)
+    end
+  end
 end
