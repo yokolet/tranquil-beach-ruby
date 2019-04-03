@@ -115,4 +115,32 @@ describe 'Design' do
       expect(obj.get_min).to eq(-2)
     end
   end
+
+  context RandomPick do
+    it 'picks by weight 1' do
+      ops = ["RandomPick","pick_index"]
+      params = [[[1]],[]]
+      expected = [nil,0]
+      obj = Object::const_get(ops[0]).new(*params[0])
+      result = [nil]
+      ops[1..-1].zip(params[1..-1]).each do |op, param|
+        result << obj.send(op, *param)
+      end
+      puts result
+      expect(result).to eq(expected)
+    end
+
+    it 'picks by weight 2' do
+      ops = ["RandomPick","pick_index","pick_index","pick_index","pick_index","pick_index"]
+      params = [[[1,3]],[],[],[],[],[]]
+      expected = [nil,0,1,1,1,0]
+      obj = Object::const_get(ops[0]).new(*params[0])
+      result = [nil]
+      ops[1..-1].zip(params[1..-1]).each do |op, param|
+        result << obj.send(op, *param)
+      end
+      puts result
+      expect(result).to eq(expected)
+    end
+  end
 end
