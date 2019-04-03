@@ -489,4 +489,20 @@ describe 'Arrays and Strings' do
       expect(obj.reorder_log_files(logs)).to eq(expected)
     end
   end
+
+  context Intersection do
+    let(:obj) { Intersection.new }
+
+    it 'returns [2]' do
+      nums1, nums2 = [1,2,2,1], [2,2]
+      expected = [2]
+      expect(obj.intersection(nums1, nums2)).to eq(expected)
+    end
+
+    it 'returns [9, 4]' do
+      nums1, nums2 = [4,9,5], [9,4,9,8,4]
+      expected = [9, 4]
+      expect(obj.intersection(nums1, nums2)).to match_array(expected)
+    end
+  end
 end
