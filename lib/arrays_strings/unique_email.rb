@@ -12,6 +12,7 @@ class UniqueEmail
     end
     seen.size
   end
+
   def num_unique_emails2(emails)
     seen = Set.new
     emails.each do |email|
