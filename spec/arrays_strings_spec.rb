@@ -544,4 +544,22 @@ describe 'Arrays and Strings' do
       expect(obj.num_unique_emails(emails)).to eq(expected)
     end
   end
+
+  context LadderLength do
+    let(:obj) { LadderLength.new }
+
+    it 'returns 5' do
+      begin_word, end_word = "hit", "cog"
+      word_list = ["hot","dot","dog","lot","log","cog"]
+      expected = 5
+      expect(obj.ladder_length(begin_word, end_word, word_list)).to eq(expected)
+    end
+
+    it 'returns 0' do
+      begin_word, end_word = "hit", "cog"
+      word_list = ["hot","dot","dog","lot","log"]
+      expected = 0
+      expect(obj.ladder_length(begin_word, end_word, word_list)).to eq(expected)
+    end
+  end
 end
