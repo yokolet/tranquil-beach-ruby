@@ -268,4 +268,18 @@ describe 'Other' do
       expect(obj.prison_after_n_days(cells, n)).to eq(expected)
     end
   end
+
+  context PerfectNumber do
+    let(:obj) { PerfectNumber.new }
+
+    it 'returns true for 28' do
+      num = 28
+      expect(obj.check_perfect_number(num)).to be_truthy
+    end
+
+    it 'returns false for 1' do
+      num = 1
+      expect(obj.check_perfect_number(num)).to be_falsey
+    end
+  end
 end
