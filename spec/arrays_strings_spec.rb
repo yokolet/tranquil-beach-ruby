@@ -562,4 +562,38 @@ describe 'Arrays and Strings' do
       expect(obj.ladder_length(begin_word, end_word, word_list)).to eq(expected)
     end
   end
+
+  context ClosestPalindrome do
+    let(:obj) { ClosestPalindrome.new }
+
+    it 'returns 121' do
+      n = "123"
+      expected = "121"
+      expect(obj.nearest_palindromic(n)).to eq(expected)
+    end
+
+    it 'returns 8' do
+      n = "9"
+      expected = "8"
+      expect(obj.nearest_palindromic(n)).to eq(expected)
+    end
+
+    it 'returns 0' do
+      n = "1"
+      expected = "0"
+      expect(obj.nearest_palindromic(n)).to eq(expected)
+    end
+
+    it 'returns 181' do
+      n = "191"
+      expected = "181"
+      expect(obj.nearest_palindromic(n)).to eq(expected)
+    end
+
+    it 'returns 99' do
+      n = "100"
+      expected = "99"
+      expect(obj.nearest_palindromic(n)).to eq(expected)
+    end
+  end
 end
