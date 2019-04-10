@@ -143,4 +143,19 @@ describe 'Design' do
       expect(result).to eq(expected)
     end
   end
+
+  context KthLargest do
+    it 'returns kth largest' do
+      ops = ["KthLargest","add","add","add","add","add"]
+      params = [[3,[4,5,8,2]],[3],[5],[10],[9],[4]]
+      expected = [nil,4,5,5,8,8]
+      obj = Object::const_get(ops[0]).new(*params[0])
+      result = [nil]
+      ops[1..-1].zip(params[1..-1]).each do |op, param|
+        result << obj.send(op, *param)
+      end
+      expect(result).to eq(expected)
+    end
+
+  end
 end
